@@ -1,26 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0b0b;
+  --foreground: #f5f5f5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+a { transition: opacity 180ms ease, color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.container { width: 100%; max-width: 1280px; }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .3em; color: rgba(255,255,255,.4); }
+.section-title { margin-top: 8px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -.04em; }
+.page-title { margin-top: 8px; font-size: clamp(3rem, 7vw, 6rem); font-weight: 600; letter-spacing: -.055em; }
+.page-lead { margin-top: 16px; max-width: 650px; color: rgba(255,255,255,.5); font-size: 1.05rem; line-height: 1.8; }
+.button-primary { align-items: center; border-radius: 12px; background: #fff; color: #080808; padding: 13px 18px; font-size: 14px; font-weight: 600; }
+.button-secondary { align-items: center; border-radius: 12px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); padding: 13px 18px; font-size: 14px; font-weight: 500; }
+.button-primary:hover, .button-secondary:hover { transform: translateY(-1px); }
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.72) 48%, rgba(0,0,0,.25) 100%),
+    url("https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=2000&q=90") center/cover;
+}
+.hero-overlay { position: absolute; inset: 0; background: radial-gradient(circle at 70% 40%, transparent, rgba(0,0,0,.55) 65%); }
+.drink-card-image { position: relative; aspect-ratio: 4 / 4.5; background-position: center; background-size: cover; transition: transform .5s ease; }
+.group:hover .drink-card-image { transform: scale(1.025); }
+.recipe-image { min-height: 560px; border-radius: 32px; background-position: center; background-size: cover; }
+.tag, .flavor, .filter-pill { display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; background: rgba(0,0,0,.35); padding: 6px 9px; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.7); }
+.flavor { background: rgba(255,255,255,.04); border-color: transparent; text-transform: none; letter-spacing: 0; font-size: 11px; }
+.filter-pill { padding: 9px 13px; font-size: 11px; }
+.filter-pill:hover { background: #fff; color: #000; }
+.cta-panel { overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 32px; background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); padding: 48px; }
+@media (max-width: 640px) {
+  .hero-shell { background-position: 65% center; }
+  .recipe-image { min-height: 420px; }
+  .cta-panel { padding: 30px; }
 }
