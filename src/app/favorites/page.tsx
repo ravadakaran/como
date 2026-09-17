@@ -7,7 +7,7 @@ export default function FavoritesPage() {
   const { favorites } = useFavorites();
 
   return (
-    <main className="min-h-screen bg-[#0b0b0b] px-6 pb-28 pt-28 text-white lg:px-10 lg:pt-32">
+    <main className="min-h-screen bg-[#0b0b0b] px-5 pb-24 pt-24 text-white sm:px-8 sm:pt-28 lg:px-10 lg:pt-32">
       <div className="container mx-auto">
 
         <header className="max-w-4xl">
