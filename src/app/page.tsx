@@ -18,25 +18,25 @@ export default function Home() {
     <div className="min-h-screen bg-[#0b0b0b] text-white">
 
       {/* ── Hero ────────────────────────────────────── */}
-      <section className="hero-shell">
-        <div className="hero-overlay" />
+      <section className="hero-shell relative z-20 overflow-visible">
+        <div className="hero-overlay pointer-events-none" />
         <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-white/[.028] blur-[100px]" />
 
-        <div className="container relative z-10 mx-auto flex min-h-[620px] flex-col justify-center px-5 py-24 sm:min-h-[680px] sm:px-8 lg:px-10">
+        <div className="container relative z-10 mx-auto flex min-h-[580px] flex-col justify-start pt-28 pb-16 px-5 sm:min-h-[680px] sm:justify-center sm:py-24 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
-            <p className="animate-fade-up eyebrow mb-4">Discover your next drink</p>
-            <h1 className="animate-fade-up delay-100 text-5xl font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-[84px]">
+            <p className="animate-fade-up eyebrow mb-3">Discover your next drink</p>
+            <h1 className="animate-fade-up delay-100 text-4xl font-semibold leading-[1.04] tracking-[-0.03em] sm:text-6xl sm:leading-[0.95] lg:text-[84px]">
               Find your next
               <span className="block text-white/42">favorite drink.</span>
             </h1>
-            <p className="animate-fade-up delay-200 mt-5 max-w-lg text-sm leading-7 text-white/55 sm:text-base sm:max-w-xl">
+            <p className="animate-fade-up delay-200 mt-4 max-w-lg text-sm leading-6 text-white/55 sm:text-base sm:max-w-xl">
               Hundreds of cocktails and mocktails. Build your bar and discover
               what you can make right now.
             </p>
-            <div className="animate-fade-up delay-300 mt-7 max-w-2xl">
+            <div className="animate-fade-up delay-300 relative z-40 mt-6 max-w-2xl">
               <SearchBar />
             </div>
-            <div className="animate-fade-up delay-400 mt-5 flex flex-wrap gap-3">
+            <div className="animate-fade-up delay-400 relative z-10 mt-5 flex flex-wrap gap-3">
               <Link className="button-primary" href="/cocktails">Explore Cocktails</Link>
               <Link className="button-secondary" href="/mocktails">Explore Mocktails</Link>
             </div>
@@ -45,7 +45,7 @@ export default function Home() {
       </section>
 
       {/* ── Stats bar ───────────────────────────────── */}
-      <section className="border-y border-white/8 bg-white/[.018]">
+      <section className="relative z-10 border-y border-white/8 bg-white/[.018]">
         <div className="container mx-auto grid grid-cols-2 sm:grid-cols-4 lg:px-10">
           {stats.map(({ value, label }, i) => (
             <div key={label} className={`px-5 py-5 text-center ${i < 3 ? "border-r border-white/8" : ""} sm:border-r sm:last:border-r-0`}>

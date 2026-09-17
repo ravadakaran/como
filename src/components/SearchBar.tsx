@@ -193,9 +193,21 @@ export default function SearchBar({ defaultValue = "" }: { defaultValue?: string
         </button>
       </form>
 
+      {/* Mobile backdrop so suggestions pop cleanly and tapping outside dismisses */}
+      {open && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-[2px] md:hidden"
+          onClick={() => {
+            setOpen(false);
+            inputRef.current?.blur();
+          }}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Suggestions or Quick-Chips Dropdown */}
       {open && (
-        <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-50 max-h-[min(50vh,340px)] overflow-y-auto overscroll-contain rounded-2xl border border-white/12 bg-[#141414]/98 p-1.5 shadow-[0_20px_60px_rgba(0,0,0,0.85)] backdrop-blur-2xl transition-all sm:p-2">
+        <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 max-h-[min(50vh,360px)] overflow-y-auto overscroll-contain rounded-2xl border border-white/15 bg-[#141414] p-1.5 shadow-[0_24px_70px_rgba(0,0,0,0.95)] transition-all sm:p-2">
           {/* If user typed something and there are suggestions */}
           {suggestions.length > 0 ? (
             <div>
